@@ -7,6 +7,7 @@ import javax.persistence.TypedQuery;
 import org.adligo.i.storage.I_EntityModifier;
 import org.adligo.i.storage.I_EntityObtainer;
 import org.adligo.i.storage.I_ParameterContainer;
+import org.adligo.i.storage.I_Query;
 import org.adligo.i.storage.I_ReadWriteQuery;
 import org.adligo.i.storage.I_ReadWriteTypedQuery;
 import org.adligo.i.storage.I_TypedQuery;
@@ -24,7 +25,7 @@ public class JpaTemplateParserEngine {
 	 * @param in
 	 * @return
 	 */
-	public static I_ParameterContainer parseNative(JpaReadOnlyEngineInput in, Class<?> entityClass) {
+	public static I_Query parseNative(JpaReadOnlyEngineInput in, Class<?> entityClass) {
 		 //does a null check for connection, params, and template
 		  // allowed operators is a internally managed set (never null)
 		  in.validate();
@@ -35,9 +36,8 @@ public class JpaTemplateParserEngine {
 		  
 		 
 		  String queryWithNamedAsNumbersParameters = TemplateParserEngine.parse(in.getTemplate(), jdbcParams);
-		  I_ParameterContainer query = null;
 		  I_EntityObtainer eo = in.getEntityObtainer();
-		  query = eo.createNativeQuery(queryWithNamedAsNumbersParameters, entityClass);
+		  I_Query query = eo.createNativeQuery(queryWithNamedAsNumbersParameters, entityClass);
 		 
 		  JpaPopulator.setParameters(aggregator, query);
 		  return query;
