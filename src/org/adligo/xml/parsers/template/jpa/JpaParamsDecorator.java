@@ -54,7 +54,7 @@ public class JpaParamsDecorator extends ParamDecorator implements I_TemplatePara
 			aggregator.addValue(types[i], vals[i]);
 			// put in a named parameter with the number
 			// in the loop ie :1, :2, :3 exc
-			toRet[i] = ":" + i;
+			toRet[i] = ":" + (aggregator.size() - 1);
 		}
 		
 		return toRet;

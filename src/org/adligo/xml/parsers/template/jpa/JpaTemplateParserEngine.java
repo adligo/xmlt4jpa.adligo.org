@@ -6,7 +6,6 @@ import javax.persistence.TypedQuery;
 
 import org.adligo.i.storage.I_EntityModifier;
 import org.adligo.i.storage.I_EntityObtainer;
-import org.adligo.i.storage.I_ParameterContainer;
 import org.adligo.i.storage.I_Query;
 import org.adligo.i.storage.I_ReadWriteQuery;
 import org.adligo.i.storage.I_ReadWriteTypedQuery;
@@ -14,7 +13,6 @@ import org.adligo.i.storage.I_TypedQuery;
 import org.adligo.i.storage.ReadOnlyQuery;
 import org.adligo.i.storage.ReadWriteTypedQuery;
 import org.adligo.xml.parsers.template.TemplateParserEngine;
-import org.adligo.xml.parsers.template.jdbc.JdbcParamsDecorator;
 import org.adligo.xml.parsers.template.jdbc.QueryParameterAggregator;
 
 public class JpaTemplateParserEngine {
