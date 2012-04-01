@@ -30,14 +30,14 @@ public class JpaTemplateParserEngine {
 		  in.validate();
 		  validateEntityClass(entityClass);
 		  QueryParameterAggregator aggregator = new QueryParameterAggregator();
-		  JdbcParamsDecorator jdbcParams =	new JdbcParamsDecorator(in.getParams(), 
+		  JpaParamsDecorator jdbcParams =	new JpaParamsDecorator(in.getParams(), 
 				  in.getAllowedOperators(), aggregator);
 		  
 		 
-		  String queryWithQuestionMarks = TemplateParserEngine.parse(in.getTemplate(), jdbcParams);
+		  String queryWithNamedAsNumbersParameters = TemplateParserEngine.parse(in.getTemplate(), jdbcParams);
 		  I_ParameterContainer query = null;
 		  I_EntityObtainer eo = in.getEntityObtainer();
-		  query = eo.createNativeQuery(queryWithQuestionMarks, entityClass);
+		  query = eo.createNativeQuery(queryWithNamedAsNumbersParameters, entityClass);
 		 
 		  JpaPopulator.setParameters(aggregator, query);
 		  return query;
@@ -55,14 +55,14 @@ public class JpaTemplateParserEngine {
 		  in.validate();
 		  validateEntityClass(entityClass);
 		  QueryParameterAggregator aggregator = new QueryParameterAggregator();
-		  JdbcParamsDecorator jdbcParams =	new JdbcParamsDecorator(in.getParams(), 
+		  JpaParamsDecorator jdbcParams =	new JpaParamsDecorator(in.getParams(), 
 				  in.getAllowedOperators(), aggregator);
 		  
 		 
-		  String queryWithQuestionMarks = TemplateParserEngine.parse(in.getTemplate(), jdbcParams);
+		  String queryWithNamedAsNumbersParameters = TemplateParserEngine.parse(in.getTemplate(), jdbcParams);
 		  I_ReadWriteQuery query = null;
 		  I_EntityModifier em = in.getEntityModifier();
-		  query = em.createNativeQuery(queryWithQuestionMarks, entityClass);
+		  query = em.createNativeQuery(queryWithNamedAsNumbersParameters, entityClass);
 		 
 		  JpaPopulator.setParameters(aggregator, query);
 		  return query;
@@ -86,13 +86,13 @@ public class JpaTemplateParserEngine {
 		  in.validate();
 		  validateEntityClass(entityClass);
 		  QueryParameterAggregator aggregator = new QueryParameterAggregator();
-		  JdbcParamsDecorator jdbcParams =	new JdbcParamsDecorator(in.getParams(), 
+		  JpaParamsDecorator jdbcParams =	new JpaParamsDecorator(in.getParams(), 
 				  in.getAllowedOperators(), aggregator);
 		  
-		  String queryWithQuestionMarks = TemplateParserEngine.parse(in.getTemplate(), jdbcParams);
+		  String queryWithNamedAsNumbersParameters = TemplateParserEngine.parse(in.getTemplate(), jdbcParams);
 		  
 		  EntityManager em = in.getEntityManager();
-		  Query query = em.createNativeQuery(queryWithQuestionMarks, entityClass);
+		  Query query = em.createNativeQuery(queryWithNamedAsNumbersParameters, entityClass);
 		  //pass in the wrapper
 		  JpaPopulator.setParameters(aggregator, new ReadOnlyQuery(query));
 		  return query;
@@ -110,14 +110,14 @@ public class JpaTemplateParserEngine {
 		  // allowed operators is a internally managed set (never null)
 		  in.validate();
 		  QueryParameterAggregator aggregator = new QueryParameterAggregator();
-		  JdbcParamsDecorator jdbcParams =	new JdbcParamsDecorator(in.getParams(), 
+		  JpaParamsDecorator jdbcParams =	new JpaParamsDecorator(in.getParams(), 
 				  in.getAllowedOperators(), aggregator);
 		  
 		 
-		  String queryWithQuestionMarks = TemplateParserEngine.parse(in.getTemplate(), jdbcParams);
+		  String queryWithNamedAsNumbersParameters = TemplateParserEngine.parse(in.getTemplate(), jdbcParams);
 		  
 		  I_EntityObtainer eo = in.getEntityObtainer();
-		  I_TypedQuery<X> query =  eo.createQuery(queryWithQuestionMarks, entityClass);
+		  I_TypedQuery<X> query =  eo.createQuery(queryWithNamedAsNumbersParameters, entityClass);
 		  JpaPopulator.setParameters(aggregator, query);
 		  return query;
 	}
@@ -135,14 +135,14 @@ public class JpaTemplateParserEngine {
 		  // allowed operators is a internally managed set (never null)
 		  in.validate();
 		  QueryParameterAggregator aggregator = new QueryParameterAggregator();
-		  JdbcParamsDecorator jdbcParams =	new JdbcParamsDecorator(in.getParams(), 
+		  JpaParamsDecorator jdbcParams =	new JpaParamsDecorator(in.getParams(), 
 				  in.getAllowedOperators(), aggregator);
 		  
 		 
-		  String queryWithQuestionMarks = TemplateParserEngine.parse(in.getTemplate(), jdbcParams);
+		  String queryWithNamedAsNumbersParameters = TemplateParserEngine.parse(in.getTemplate(), jdbcParams);
 		  
 		  I_EntityModifier em = in.getEntityModifier();
-		  I_ReadWriteTypedQuery<X> query =  em.createQuery(queryWithQuestionMarks, entityClass);
+		  I_ReadWriteTypedQuery<X> query =  em.createQuery(queryWithNamedAsNumbersParameters, entityClass);
 		  JpaPopulator.setParameters(aggregator, query);
 		  return query;
 	}
@@ -159,14 +159,13 @@ public class JpaTemplateParserEngine {
 		  // allowed operators is a internally managed set (never null)
 		in.validate();
 		  QueryParameterAggregator aggregator = new QueryParameterAggregator();
-		  JdbcParamsDecorator jdbcParams =	new JdbcParamsDecorator(in.getParams(), 
+		  JpaParamsDecorator jdbcParams =	new JpaParamsDecorator(in.getParams(), 
 				  in.getAllowedOperators(), aggregator);
 		  
-		 
-		  String queryWithQuestionMarks = TemplateParserEngine.parse(in.getTemplate(), jdbcParams);
+		  String queryWithNamedAsNumbersParameters = TemplateParserEngine.parse(in.getTemplate(), jdbcParams);
 		  
 		  EntityManager em = in.getEntityManager();
-		  TypedQuery<X> query =  em.createQuery(queryWithQuestionMarks, entityClass);
+		  TypedQuery<X> query =  em.createQuery(queryWithNamedAsNumbersParameters, entityClass);
 		  JpaPopulator.setParameters(aggregator, new ReadWriteTypedQuery<X>(query));
 		  return query;
 	}

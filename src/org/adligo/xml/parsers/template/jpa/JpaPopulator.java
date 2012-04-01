@@ -23,28 +23,28 @@ public class JpaPopulator {
 				// (from copy of xmlt4hibernat)
 				switch (type) {
 					case ValueTypes.STRING:
-						query.setParameter(i, (String) value); 
+						query.setParameter("" + i, (String) value); 
 						break;
 					case ValueTypes.INTEGER:
-						query.setParameter(i, (Integer) value); 
+						query.setParameter("" + i, (Integer) value); 
 						break;
 					case ValueTypes.DOUBLE:
-						query.setParameter(i, (Double) value); 
+						query.setParameter("" + i, (Double) value); 
 						break;
 					case ValueTypes.LONG:
-						query.setParameter(i, (Long) value); 
+						query.setParameter("" + i, (Long) value); 
 						break;
 					case ValueTypes.SHORT:
-						query.setParameter(i, (Short) value); 
+						query.setParameter("" + i, (Short) value); 
 						break;
 					case ValueTypes.FLOAT:
-						query.setParameter(i, (Float) value); 
+						query.setParameter("" + i, (Float) value); 
 						break;
 					case ValueTypes.DATE:
-						query.setParameter(i, new java.sql.Date(((Date) value).getTime())); 
+						query.setParameter("" + i, new java.sql.Date(((Date) value).getTime())); 
 						break;
 					case ValueTypes.BOOLEAN:
-						query.setParameter(i, (Boolean) value); 
+						query.setParameter("" + i, (Boolean) value); 
 						break;
 					default:
 						throw new PersistenceException("Unknown type " + type +
