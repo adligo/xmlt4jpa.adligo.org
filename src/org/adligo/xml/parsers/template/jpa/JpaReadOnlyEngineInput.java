@@ -29,4 +29,8 @@ public class JpaReadOnlyEngineInput extends InjectionSafeEngineInput {
 		this.entityObtainer = entityObtainer;
 	}
 	
+	public void clear() {
+		entityObtainer = null;
+		super.clear();
+	}
 }

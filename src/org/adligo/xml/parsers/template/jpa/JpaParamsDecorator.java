@@ -1,6 +1,8 @@
 package org.adligo.xml.parsers.template.jpa;
 
 import java.security.InvalidParameterException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 import org.adligo.i.log.client.Log;
@@ -37,6 +39,7 @@ public class JpaParamsDecorator extends ParamDecorator implements I_TemplatePara
 	
 	private QueryParameterAggregator aggregator;
 	private Set<I_Operators> operators;
+	private List<JpaParamsDecorator> children = new ArrayList<JpaParamsDecorator>();
 	
 	public JpaParamsDecorator(I_TemplateParams in, Set<I_Operators> allowedOperators,
 			QueryParameterAggregator  p_aggregator) {
@@ -94,8 +97,17 @@ public class JpaParamsDecorator extends ParamDecorator implements I_TemplatePara
 
 	@Override
 	public I_TemplateParams getNestedParams() {
-		return new JpaParamsDecorator(super.getNestedParams(), operators,
+		JpaParamsDecorator child = new JpaParamsDecorator(super.getNestedParams(), operators,
 				aggregator);
+		children.add(child);
+		return child;
 	}
-	
+
+	public void clear() {
+		aggregator = null;
+		operators = null;
+		for (JpaParamsDecorator child: children) {
+			child.clear();
+		}
+	}
 }

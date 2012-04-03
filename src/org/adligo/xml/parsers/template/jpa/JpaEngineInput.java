@@ -29,4 +29,8 @@ public class JpaEngineInput extends InjectionSafeEngineInput {
 		entityManager = p;
 	}
 	
+	public void clear() {
+		entityManager = null;
+		super.clear();
+	}
 }

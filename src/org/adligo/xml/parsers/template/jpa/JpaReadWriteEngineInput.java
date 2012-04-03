@@ -29,4 +29,9 @@ public class JpaReadWriteEngineInput extends InjectionSafeEngineInput {
 		this.entityModifier = entityModifier;
 	}
 	
+	public void clear() {
+		entityModifier = null;
+		super.clear();
+	}
+	
 }
