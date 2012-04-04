@@ -44,33 +44,6 @@ public class JpaTemplateParserEngine {
 		  return query;
 	}
 
-	/**
-	 * note this api return the populated query (with filled in question marks)
-	 * to parse things like native SQL
-	 * @param in
-	 * @return
-	 */
-	public static I_ReadWriteQuery parseNative(JpaReadWriteEngineInput in, Class<?> entityClass) {
-		 //does a null check for connection, params, and template
-		  // allowed operators is a internally managed set (never null)
-		  in.validate();
-		  validateEntityClass(entityClass);
-		  QueryParameterAggregator aggregator = new QueryParameterAggregator();
-		  JpaParamsDecorator jpaParams =	new JpaParamsDecorator(in.getParams(), 
-				  in.getAllowedOperators(), aggregator);
-		  
-		 
-		  String queryWithNamedAsNumbersParameters = TemplateParserEngine.parse(in.getTemplate(), jpaParams);
-		  I_ReadWriteQuery query = null;
-		  I_EntityModifier em = in.getEntityModifier();
-		  //some memory cleanup before the actual query
-		  jpaParams.clear();
-		  in.clear();
-		  query = em.createNativeQueryForModify(queryWithNamedAsNumbersParameters, entityClass);
-		 
-		  JpaPopulator.setParameters(aggregator, query);
-		  return query;
-	}
 	
 	public static void validateEntityClass(Class<?> entityClass) {
 		if (entityClass == null) {
@@ -141,7 +114,7 @@ public class JpaTemplateParserEngine {
 	 * @param in
 	 * @return
 	 */
-	public static <X> I_ReadWriteTypedQuery<X> parseJPQL(JpaReadWriteEngineInput in, Class<X> entityClass) {
+	public static int executeUpdate(JpaReadWriteEngineInput in) {
 		 //does a null check for connection, params, and template
 		  // allowed operators is a internally managed set (never null)
 		  in.validate();
@@ -157,11 +130,38 @@ public class JpaTemplateParserEngine {
 		  jpaParams.clear();
 		  in.clear();
 		  
-		  I_ReadWriteTypedQuery<X> query =  em.createQueryForModify(queryWithNamedAsNumbersParameters, entityClass);
+		  I_ReadWriteQuery query =  em.createQueryForModify(queryWithNamedAsNumbersParameters);
 		  JpaPopulator.setParameters(aggregator, query);
-		  return query;
+		  return query.executeUpdate();
 	}
 	
+	/**
+	 * note this api return the populated query (with filled in named parameters
+	 * named like :1, :2, :3 exc)
+	 * to parse things like JPQL
+	 * @param in
+	 * @return
+	 */
+	public static int executeNativeUpdate(JpaReadWriteEngineInput in) {
+		 //does a null check for connection, params, and template
+		  // allowed operators is a internally managed set (never null)
+		  in.validate();
+		  QueryParameterAggregator aggregator = new QueryParameterAggregator();
+		  JpaParamsDecorator jpaParams =	new JpaParamsDecorator(in.getParams(), 
+				  in.getAllowedOperators(), aggregator);
+		  
+		 
+		  String queryWithNamedAsNumbersParameters = TemplateParserEngine.parse(in.getTemplate(), jpaParams);
+		  
+		  I_EntityModifier em = in.getEntityModifier();
+		  //some memory cleanup before the actual query
+		  jpaParams.clear();
+		  in.clear();
+		  
+		  I_ReadWriteQuery query =  em.createNativeQueryForModify(queryWithNamedAsNumbersParameters);
+		  JpaPopulator.setParameters(aggregator, query);
+		  return query.executeUpdate();
+	}
 	/**
 	 * note this api return the populated query (with filled in named parameters
 	 * named like :1, :2, :3 exc)
