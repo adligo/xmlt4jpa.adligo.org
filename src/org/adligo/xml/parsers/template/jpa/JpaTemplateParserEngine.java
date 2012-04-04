@@ -66,7 +66,7 @@ public class JpaTemplateParserEngine {
 		  //some memory cleanup before the actual query
 		  jpaParams.clear();
 		  in.clear();
-		  query = em.createNativeQuery(queryWithNamedAsNumbersParameters, entityClass);
+		  query = em.createNativeQueryForModify(queryWithNamedAsNumbersParameters, entityClass);
 		 
 		  JpaPopulator.setParameters(aggregator, query);
 		  return query;
@@ -157,7 +157,7 @@ public class JpaTemplateParserEngine {
 		  jpaParams.clear();
 		  in.clear();
 		  
-		  I_ReadWriteTypedQuery<X> query =  em.createQuery(queryWithNamedAsNumbersParameters, entityClass);
+		  I_ReadWriteTypedQuery<X> query =  em.createQueryForModify(queryWithNamedAsNumbersParameters, entityClass);
 		  JpaPopulator.setParameters(aggregator, query);
 		  return query;
 	}
