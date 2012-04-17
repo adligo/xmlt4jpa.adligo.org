@@ -1,18 +1,16 @@
 package org.adligo.xml.parsers.template.jpa;
 
-import java.sql.Connection;
-import java.sql.SQLException;
 import java.util.Iterator;
 
 import org.adligo.i.adi.client.InvocationException;
 import org.adligo.i.adig.client.BaseGInvoker;
 import org.adligo.i.adig.client.I_GCheckedInvoker;
+import org.adligo.i.log.client.Log;
+import org.adligo.i.log.client.LogFactory;
 import org.adligo.i.storage.I_EntityModifier;
 import org.adligo.models.params.client.Param;
 import org.adligo.xml.parsers.template.Template;
 import org.adligo.xml.parsers.template.Templates;
-import org.adligo.xml.parsers.template.jdbc.JdbcEngineInput;
-import org.adligo.xml.parsers.template.jdbc.JdbcTemplateParserEngine;
 
 /**
  * this class is a utility
@@ -26,7 +24,8 @@ import org.adligo.xml.parsers.template.jdbc.JdbcTemplateParserEngine;
  *
  */
 public class TemplateAsScriptExecutor extends BaseGInvoker implements I_GCheckedInvoker<TemplatesModifyEntityRequest, Boolean> {
-
+	private static final Log log = LogFactory.getLog(TemplateAsScriptExecutor.class);
+	
 	public TemplateAsScriptExecutor() {
 		super(TemplatesModifyEntityRequest.class, Boolean.class);
 	}
@@ -38,10 +37,15 @@ public class TemplateAsScriptExecutor extends BaseGInvoker implements I_GChecked
 		Templates templates = valueObject.getTemplates();
 		I_EntityModifier em = valueObject.getEntityModifier();
 		
-		
+		if (log.isInfoEnabled()) {
+			log.info("executing templates " + templates.getName());
+		}
 		Iterator<String> names = templates.getTemplateNames();
 		while (names.hasNext()) {
 			String templateName = names.next();
+			if (log.isInfoEnabled()) {
+				log.info("executing template " + templateName);
+			}
 			Template temp = templates.getTemplate(templateName);
 			
 			JpaReadWriteEngineInput values = new JpaReadWriteEngineInput();
