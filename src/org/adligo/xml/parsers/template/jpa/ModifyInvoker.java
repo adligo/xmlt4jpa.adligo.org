@@ -13,14 +13,14 @@ import org.adligo.i.storage.I_EntityModifier;
  * @author scott
  *
  */
-public class ModifyInvoker extends BaseGInvoker implements I_GCheckedInvoker<ModifyEntityJpaRequest, Integer> {
+public class ModifyInvoker extends BaseGInvoker implements I_GCheckedInvoker<JpaModifyEntityRequest, Integer> {
 
 	public ModifyInvoker() {
-		super(ModifyEntityJpaRequest.class, Integer.class);
+		super(JpaModifyEntityRequest.class, Integer.class);
 	}
 
 	@Override
-	public Integer invoke(ModifyEntityJpaRequest valueObject)
+	public Integer invoke(JpaModifyEntityRequest valueObject)
 			throws InvocationException {
 		
 		I_EntityModifier em = valueObject.getEntityModifier();

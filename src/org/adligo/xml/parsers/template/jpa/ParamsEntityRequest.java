@@ -3,7 +3,7 @@ package org.adligo.xml.parsers.template.jpa;
 import org.adligo.i.storage.EntityRequest;
 import org.adligo.models.params.client.I_TemplateParams;
 
-public class EntityParamsRequest extends EntityRequest {
+public class ParamsEntityRequest extends EntityRequest {
 	private I_TemplateParams params;
 
 	public I_TemplateParams getParams() {

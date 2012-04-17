@@ -7,7 +7,7 @@ import org.adligo.models.params.client.I_Operators;
 import org.adligo.models.params.client.I_TemplateParams;
 import org.adligo.xml.parsers.template.Template;
 
-public class ModifyEntityJpaRequest extends ModifyEntityRequest {
+public class JpaModifyEntityRequest extends ModifyEntityRequest {
 	private JpaReadWriteEngineInput engineInput = new JpaReadWriteEngineInput();
 	private boolean useNativeQuery = true;
 	
