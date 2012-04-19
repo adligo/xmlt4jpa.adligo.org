@@ -1,11 +1,11 @@
 package org.adligo.xml.parsers.template.jpa;
 
-import org.adligo.i.storage.I_EntityObtainer;
+import org.adligo.i.storage.I_ReadOnlyConnection;
 import org.adligo.xml.parsers.template.jdbc.InjectionSafeEngineInput;
 
 
 public class JpaReadOnlyEngineInput extends InjectionSafeEngineInput {
-	private I_EntityObtainer entityObtainer;
+	private I_ReadOnlyConnection entityObtainer;
 	
 	protected void validate(Class<?> clz) {
 		super.validate(clz);
@@ -21,11 +21,11 @@ public class JpaReadOnlyEngineInput extends InjectionSafeEngineInput {
 	}
 
 
-	public I_EntityObtainer getEntityObtainer() {
+	public I_ReadOnlyConnection getEntityObtainer() {
 		return entityObtainer;
 	}
 
-	public void setEntityObtainer(I_EntityObtainer entityObtainer) {
+	public void setEntityObtainer(I_ReadOnlyConnection entityObtainer) {
 		this.entityObtainer = entityObtainer;
 	}
 	

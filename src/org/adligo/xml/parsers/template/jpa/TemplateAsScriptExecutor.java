@@ -7,7 +7,7 @@ import org.adligo.i.adig.client.BaseGInvoker;
 import org.adligo.i.adig.client.I_GCheckedInvoker;
 import org.adligo.i.log.client.Log;
 import org.adligo.i.log.client.LogFactory;
-import org.adligo.i.storage.I_EntityModifier;
+import org.adligo.i.storage.I_ReadWriteConnection;
 import org.adligo.models.params.client.Param;
 import org.adligo.xml.parsers.template.Template;
 import org.adligo.xml.parsers.template.Templates;
@@ -35,7 +35,7 @@ public class TemplateAsScriptExecutor extends BaseGInvoker implements I_GChecked
 			throws InvocationException {
 
 		Templates templates = valueObject.getTemplates();
-		I_EntityModifier em = valueObject.getEntityModifier();
+		I_ReadWriteConnection em = valueObject.getReadWriteConnection();
 		
 		if (log.isInfoEnabled()) {
 			log.info("executing templates " + templates.getName());

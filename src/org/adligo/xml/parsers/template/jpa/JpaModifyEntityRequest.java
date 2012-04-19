@@ -2,12 +2,12 @@ package org.adligo.xml.parsers.template.jpa;
 
 import java.util.Set;
 
-import org.adligo.i.storage.ModifyEntityRequest;
+import org.adligo.i.storage.ModifyRequest;
 import org.adligo.models.params.client.I_Operators;
 import org.adligo.models.params.client.I_TemplateParams;
 import org.adligo.xml.parsers.template.Template;
 
-public class JpaModifyEntityRequest extends ModifyEntityRequest {
+public class JpaModifyEntityRequest extends ModifyRequest {
 	private JpaReadWriteEngineInput engineInput = new JpaReadWriteEngineInput();
 	private boolean useNativeQuery = true;
 	

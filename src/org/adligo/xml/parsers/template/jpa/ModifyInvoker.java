@@ -3,7 +3,7 @@ package org.adligo.xml.parsers.template.jpa;
 import org.adligo.i.adi.client.InvocationException;
 import org.adligo.i.adig.client.BaseGInvoker;
 import org.adligo.i.adig.client.I_GCheckedInvoker;
-import org.adligo.i.storage.I_EntityModifier;
+import org.adligo.i.storage.I_ReadWriteConnection;
 
 /**
  * updates (insert, update or delete statment) the database
@@ -23,7 +23,7 @@ public class ModifyInvoker extends BaseGInvoker implements I_GCheckedInvoker<Jpa
 	public Integer invoke(JpaModifyEntityRequest valueObject)
 			throws InvocationException {
 		
-		I_EntityModifier em = valueObject.getEntityModifier();
+		I_ReadWriteConnection em = valueObject.getReadWriteConnection();
 		JpaReadWriteEngineInput input = valueObject.getEngineInput();
 		input.setEntityModifier(em);
 		if (valueObject.isUseNativeQuery()) {

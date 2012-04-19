@@ -4,8 +4,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
-import org.adligo.i.storage.I_EntityModifier;
-import org.adligo.i.storage.I_EntityObtainer;
+import org.adligo.i.storage.I_ReadWriteConnection;
+import org.adligo.i.storage.I_ReadOnlyConnection;
 import org.adligo.i.storage.I_Query;
 import org.adligo.i.storage.I_ReadWriteQuery;
 import org.adligo.i.storage.I_ReadWriteTypedQuery;
@@ -34,7 +34,7 @@ public class JpaTemplateParserEngine {
 		  
 		 
 		  String queryWithNamedAsNumbersParameters = TemplateParserEngine.parse(in.getTemplate(), jpaParams);
-		  I_EntityObtainer eo = in.getEntityObtainer();
+		  I_ReadOnlyConnection eo = in.getEntityObtainer();
 		  //some memory cleanup
 		  jpaParams.clear();
 		  in.clear();
@@ -96,7 +96,7 @@ public class JpaTemplateParserEngine {
 		 
 		  String queryWithNamedAsNumbersParameters = TemplateParserEngine.parse(in.getTemplate(), jpaParams);
 		  
-		  I_EntityObtainer eo = in.getEntityObtainer();
+		  I_ReadOnlyConnection eo = in.getEntityObtainer();
 		  //some memory cleanup before the actual query
 		  jpaParams.clear();
 		  in.clear();
@@ -125,7 +125,7 @@ public class JpaTemplateParserEngine {
 		 
 		  String queryWithNamedAsNumbersParameters = TemplateParserEngine.parse(in.getTemplate(), jpaParams);
 		  
-		  I_EntityModifier em = in.getEntityModifier();
+		  I_ReadWriteConnection em = in.getEntityModifier();
 		  //some memory cleanup before the actual query
 		  jpaParams.clear();
 		  in.clear();
@@ -153,7 +153,7 @@ public class JpaTemplateParserEngine {
 		 
 		  String queryWithNamedAsNumbersParameters = TemplateParserEngine.parse(in.getTemplate(), jpaParams);
 		  
-		  I_EntityModifier em = in.getEntityModifier();
+		  I_ReadWriteConnection em = in.getEntityModifier();
 		  //some memory cleanup before the actual query
 		  jpaParams.clear();
 		  in.clear();
