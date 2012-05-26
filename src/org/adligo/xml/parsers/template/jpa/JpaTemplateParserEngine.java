@@ -93,6 +93,7 @@ public class JpaTemplateParserEngine {
 		  jpaParams.clear();
 		  in.clear();
 		 
+		  JpaPopulator.setParameters(aggregator, query);
 		  return query;
 	}
 	/**
