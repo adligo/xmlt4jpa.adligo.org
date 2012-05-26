@@ -4,12 +4,15 @@ import org.adligo.i.storage.SelectRequest;
 import org.adligo.models.params.client.I_TemplateParams;
 
 public class ParamsSelectRequest extends SelectRequest {
+	/**
+	 * note the params are used to obtain the actual rows
+	 */
 	private I_TemplateParams params;
 	/**
-	 * if true this should actually cause two queries 
-	 * one to count the rows the other to get the rows
+	 * the count params should not have params like;
+	 *  limit, offset, default, exc
 	 */
-	private boolean countRows = false;
+	private I_TemplateParams countParams;
 	
 	public I_TemplateParams getParams() {
 		return params;
@@ -20,11 +23,17 @@ public class ParamsSelectRequest extends SelectRequest {
 	}
 
 	public boolean isCountRows() {
-		return countRows;
+		if (countParams != null) {
+			return true;
+		}
+		return false;
 	}
 
-	public void setCountRows(boolean countRows) {
-		this.countRows = countRows;
+	public I_TemplateParams getCountParams() {
+		return countParams;
 	}
-	
+
+	public void setCountParams(I_TemplateParams countParams) {
+		this.countParams = countParams;
+	}
 }

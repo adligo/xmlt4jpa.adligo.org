@@ -39,7 +39,6 @@ public class JpaTemplateParserEngine {
 		  jpaParams.clear();
 		  in.clear();
 		  I_Query query = eo.createNativeQuery(queryWithNamedAsNumbersParameters, entityClass);
-		 
 		  JpaPopulator.setParameters(aggregator, query);
 		  return query;
 	}
@@ -78,6 +77,24 @@ public class JpaTemplateParserEngine {
 		  return query;
 	}
 	
+	public static I_Query parseNative(JpaReadOnlyEngineInput in) {
+		 //does a null check for connection, params, and template
+		  // allowed operators is a internally managed set (never null)
+		  in.validate();
+		  QueryParameterAggregator aggregator = new QueryParameterAggregator();
+		  JpaParamsDecorator jpaParams =	new JpaParamsDecorator(in.getParams(), 
+				  in.getAllowedOperators(), aggregator);
+		  
+		  String queryWithNamedAsNumbersParameters = TemplateParserEngine.parse(in.getTemplate(), jpaParams);
+		  
+		  I_ReadOnlyConnection em = in.getEntityObtainer();
+		  I_Query query = em.createNativeQuery(queryWithNamedAsNumbersParameters);
+		  //some memory cleanup before the actual query
+		  jpaParams.clear();
+		  in.clear();
+		 
+		  return query;
+	}
 	/**
 	 * note this api return the populated query (with filled in named parameters
 	 * named like :1, :2, :3 exc)
