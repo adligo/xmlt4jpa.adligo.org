@@ -1,5 +1,6 @@
 package org.adligo.xml.parsers.template.jpa;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 import javax.persistence.PersistenceException;
@@ -45,6 +46,9 @@ public class JpaPopulator {
 						break;
 					case ValueTypes.BOOLEAN:
 						query.setParameter("a" + i, (Boolean) value); 
+						break;
+					case ValueTypes.BIG_DECIMAL:
+						query.setParameter("a" + i, (BigDecimal) value); 
 						break;
 					default:
 						throw new PersistenceException("Unknown type " + type +
