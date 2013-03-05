@@ -9,6 +9,7 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/i_util"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/params"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/xmlt"/>
-	<classpathentry kind="var" path="JAVA_EE3_HOME/glassfish/lib/javaee.jar"/>
+	<classpathentry kind="var" path="MVN_REPO/javax/javaee-api/6.0/javaee-api-6.0.jar"/>
+		
 	<classpathentry kind="output" path="bin"/>
 </classpath>
