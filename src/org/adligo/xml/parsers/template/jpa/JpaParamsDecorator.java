@@ -97,7 +97,11 @@ public class JpaParamsDecorator extends ParamDecorator implements I_TemplatePara
 
 	@Override
 	public I_TemplateParams getNestedParams() {
-		JpaParamsDecorator child = new JpaParamsDecorator(super.getNestedParams(), operators,
+		I_TemplateParams np = super.getNestedParams();
+		if (np == null) {
+			return null;
+		}
+		JpaParamsDecorator child = new JpaParamsDecorator(np, operators,
 				aggregator);
 		children.add(child);
 		return child;
