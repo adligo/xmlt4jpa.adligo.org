@@ -1,6 +1,6 @@
 package org.adligo.xml.parsers.template.jpa;
 
-import org.adligo.i.storage.I_ReadOnlyConnection;
+import org.adligo.i.db.I_ReadOnlyConnection;
 import org.adligo.xml.parsers.template.jdbc.InjectionSafeEngineInput;
 
 

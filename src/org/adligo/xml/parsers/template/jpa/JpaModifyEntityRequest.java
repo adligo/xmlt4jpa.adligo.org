@@ -2,7 +2,7 @@ package org.adligo.xml.parsers.template.jpa;
 
 import java.util.Set;
 
-import org.adligo.i.storage.ModifyRequest;
+import org.adligo.i.db.ModifyRequest;
 import org.adligo.models.params.client.I_Operators;
 import org.adligo.models.params.client.I_TemplateParams;
 import org.adligo.xml.parsers.template.Template;

@@ -5,9 +5,9 @@ import java.util.Date;
 
 import javax.persistence.PersistenceException;
 
+import org.adligo.i.db.I_ParameterContainer;
 import org.adligo.i.log.client.Log;
 import org.adligo.i.log.client.LogFactory;
-import org.adligo.i.storage.I_ParameterContainer;
 import org.adligo.models.params.client.ValueTypes;
 import org.adligo.xml.parsers.template.jdbc.QueryParameterAggregator;
 

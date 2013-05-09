@@ -3,7 +3,7 @@ package org.adligo.xml.parsers.template.jpa;
 import org.adligo.i.adi.client.InvocationException;
 import org.adligo.i.adig.client.BaseGInvoker;
 import org.adligo.i.adig.client.I_GCheckedInvoker;
-import org.adligo.i.storage.I_ReadWriteConnection;
+import org.adligo.i.db.I_ReadWriteConnection;
 
 /**
  * updates (insert, update or delete statment) the database

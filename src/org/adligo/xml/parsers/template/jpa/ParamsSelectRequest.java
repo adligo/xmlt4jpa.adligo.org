@@ -1,6 +1,6 @@
 package org.adligo.xml.parsers.template.jpa;
 
-import org.adligo.i.storage.SelectRequest;
+import org.adligo.i.db.SelectRequest;
 import org.adligo.models.params.client.I_TemplateParams;
 
 public class ParamsSelectRequest extends SelectRequest {

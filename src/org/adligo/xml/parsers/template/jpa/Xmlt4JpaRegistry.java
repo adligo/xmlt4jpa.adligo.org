@@ -1,7 +1,7 @@
 package org.adligo.xml.parsers.template.jpa;
 
 import org.adligo.i.adig.client.GRegistry;
-import org.adligo.i.storage.StorageWrappers;
+import org.adligo.i.db.DbMethodWrappers;
 
 public class Xmlt4JpaRegistry {
 	private static boolean isSetupUp = false;
@@ -12,7 +12,7 @@ public class Xmlt4JpaRegistry {
 			isSetupUp = true;
 			GRegistry.addCheckedInvoker(Xmlt4JpaInvokerNames.MODIFIER, new ModifyInvoker());
 			GRegistry.addCheckedInvoker(Xmlt4JpaInvokerNames.MODIFIER_IN_TRANSACTION, 
-					StorageWrappers.createTransactionWrapper(new ModifyInvoker()));
+					DbMethodWrappers.createTransactionWrapper(new ModifyInvoker()));
 		}
 	}
 }

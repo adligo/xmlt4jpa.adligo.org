@@ -4,14 +4,14 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
-import org.adligo.i.storage.I_ReadWriteConnection;
-import org.adligo.i.storage.I_ReadOnlyConnection;
-import org.adligo.i.storage.I_Query;
-import org.adligo.i.storage.I_ReadWriteQuery;
-import org.adligo.i.storage.I_ReadWriteTypedQuery;
-import org.adligo.i.storage.I_TypedQuery;
-import org.adligo.i.storage.ReadOnlyQuery;
-import org.adligo.i.storage.ReadWriteTypedQuery;
+import org.adligo.i.db.I_Query;
+import org.adligo.i.db.I_ReadOnlyConnection;
+import org.adligo.i.db.I_ReadWriteConnection;
+import org.adligo.i.db.I_ReadWriteQuery;
+import org.adligo.i.db.I_ReadWriteTypedQuery;
+import org.adligo.i.db.I_TypedQuery;
+import org.adligo.i.db.ReadOnlyQuery;
+import org.adligo.i.db.ReadWriteTypedQuery;
 import org.adligo.xml.parsers.template.TemplateParserEngine;
 import org.adligo.xml.parsers.template.jdbc.QueryParameterAggregator;
 

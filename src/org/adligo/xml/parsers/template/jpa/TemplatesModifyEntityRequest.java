@@ -1,6 +1,6 @@
 package org.adligo.xml.parsers.template.jpa;
 
-import org.adligo.i.storage.ModifyRequest;
+import org.adligo.i.db.ModifyRequest;
 import org.adligo.xml.parsers.template.Templates;
 
 public class TemplatesModifyEntityRequest extends ModifyRequest {
