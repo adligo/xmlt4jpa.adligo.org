@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="gwt_jar" name="xmlt4jpa">
+	<!-- note this file is here so that
+	the models projects can be tested vs a db -->
+	
+	<import file="${user.home}/conf/adligo/gwt-build.xml"/>
+</project>
