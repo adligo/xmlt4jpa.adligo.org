@@ -1,1 +1,6 @@
 /bin
+bin/
+classes/
+classes_e/
+xmlt4jpa.jar
+
