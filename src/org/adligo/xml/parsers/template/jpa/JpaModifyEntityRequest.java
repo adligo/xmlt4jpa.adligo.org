@@ -3,8 +3,8 @@ package org.adligo.xml.parsers.template.jpa;
 import java.util.Set;
 
 import org.adligo.i.db.ModifyRequest;
-import org.adligo.models.params.client.I_Operators;
-import org.adligo.models.params.client.I_TemplateParams;
+import org.adligo.models.params.shared.I_Operators;
+import org.adligo.models.params.shared.I_TemplateParams;
 import org.adligo.xml.parsers.template.Template;
 
 public class JpaModifyEntityRequest extends ModifyRequest {

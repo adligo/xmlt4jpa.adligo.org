@@ -2,13 +2,13 @@ package org.adligo.xml.parsers.template.jpa;
 
 import java.util.Iterator;
 
-import org.adligo.i.adi.client.InvocationException;
-import org.adligo.i.adig.client.BaseGInvoker;
-import org.adligo.i.adig.client.I_GCheckedInvoker;
+import org.adligo.i.adi.shared.InvocationException;
+import org.adligo.i.adig.shared.BaseGInvoker;
+import org.adligo.i.adig.shared.I_GCheckedInvoker;
 import org.adligo.i.db.I_ReadWriteConnection;
-import org.adligo.i.log.client.Log;
-import org.adligo.i.log.client.LogFactory;
-import org.adligo.models.params.client.Param;
+import org.adligo.i.log.shared.Log;
+import org.adligo.i.log.shared.LogFactory;
+import org.adligo.models.params.shared.Param;
 import org.adligo.xml.parsers.template.Template;
 import org.adligo.xml.parsers.template.Templates;
 

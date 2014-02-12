@@ -1,7 +1,7 @@
 package org.adligo.xml.parsers.template.jpa;
 
 import org.adligo.i.db.SelectRequest;
-import org.adligo.models.params.client.I_TemplateParams;
+import org.adligo.models.params.shared.I_TemplateParams;
 
 public class ParamsSelectRequest extends SelectRequest {
 	/**

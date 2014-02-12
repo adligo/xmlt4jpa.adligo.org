@@ -1,6 +1,6 @@
 package org.adligo.xml.parsers.template.jpa;
 
-import org.adligo.i.adig.client.GRegistry;
+import org.adligo.i.adig.shared.GRegistry;
 import org.adligo.i.db.DbMethodWrappers;
 
 public class Xmlt4JpaRegistry {

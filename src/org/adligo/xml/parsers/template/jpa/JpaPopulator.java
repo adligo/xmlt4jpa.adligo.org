@@ -6,10 +6,10 @@ import java.util.Date;
 import javax.persistence.PersistenceException;
 
 import org.adligo.i.db.I_ParameterContainer;
-import org.adligo.i.log.client.Log;
-import org.adligo.i.log.client.LogFactory;
-import org.adligo.models.params.client.ValueType;
-import org.adligo.models.params.client.ValueTypes;
+import org.adligo.i.log.shared.Log;
+import org.adligo.i.log.shared.LogFactory;
+import org.adligo.models.params.shared.ValueType;
+import org.adligo.models.params.shared.ValueTypes;
 import org.adligo.xml.parsers.template.jdbc.QueryParameterAggregator;
 
 public class JpaPopulator {
