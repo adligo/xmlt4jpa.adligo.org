@@ -1,4 +1,4 @@
-package org.adligo.xml.parsers.template.jpa;
+package org.adligo.xml.parsers.template_jpa;
 
 import org.adligo.i.adi.shared.InvocationException;
 import org.adligo.i.adig.shared.BaseGInvoker;

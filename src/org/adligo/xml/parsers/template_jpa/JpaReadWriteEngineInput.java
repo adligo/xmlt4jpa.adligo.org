@@ -1,4 +1,4 @@
-package org.adligo.xml.parsers.template.jpa;
+package org.adligo.xml.parsers.template_jpa;
 
 import org.adligo.i.db.I_ReadWriteConnection;
 import org.adligo.xml.parsers.template.jdbc.InjectionSafeEngineInput;

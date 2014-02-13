@@ -1,4 +1,4 @@
-package org.adligo.xml.parsers.template.jpa;
+package org.adligo.xml.parsers.template_jpa;
 
 
 public class Xmlt4JpaInvokerNames {
